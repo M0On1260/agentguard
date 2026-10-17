@@ -1,4 +1,4 @@
-# AgentGuard: product view (DRAFT, edit in your own words)
+# AgentGuard: product view 
 
 No users yet. Everything below is a hypothesis to validate, not a result.
 
