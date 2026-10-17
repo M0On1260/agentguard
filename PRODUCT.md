@@ -20,7 +20,7 @@ The agent can read sensitive data and call external services. A hidden instructi
 - Attacks that cause harm: 0/23 with action rules (19/23 with regex only)
 - Normal pages wrongly blocked: 0/12 (judge + action), 3/12 (regex)
 - Added latency: action rules negligible; LLM-judge about 4 to 12 s per page
-- Time to set up: TODO measure (target: under 10 minutes with `docker compose up`)
+- Time to set up: not measured yet (goal: under 10 minutes with `docker compose up`, which I have not tested)
 
 ## 5. Scope decisions
 - **Built:** one attack class (data exfiltration), sequence rules with taint, pluggable text layer, audit log, evaluation harness.
