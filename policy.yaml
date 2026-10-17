@@ -1,0 +1,13 @@
+agent: support-bot
+allow_tools: [read_db, read_secret, fetch_page, http_post]
+deny_tools: [delete_row]
+network_tools: [http_post]
+egress_allowlist: [api.company.com]
+
+# Week 2: sequence rules (taint tracking)
+sensitive_tools: [read_secret]     # allowed, but taints the session with "secret"
+rate_limit: {max_calls: 5, per_seconds: 3}
+injection_patterns:
+  - "ignore (all )?(previous|prior) instructions"
+  - "system prompt"
+  - "send .* to https?://"

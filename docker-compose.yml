@@ -1,0 +1,17 @@
+services:
+  gateway:
+    build: .
+    ports: ["8000:8000"]
+    volumes: ["agentguard-data:/data"]
+    environment:
+      - AGENTGUARD_JUDGE=${AGENTGUARD_JUDGE:-}      # set to "gemini" to enable the LLM-judge
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+  dashboard:
+    build: .
+    command: ["streamlit", "run", "dashboard/app.py", "--server.port", "8501", "--server.address", "0.0.0.0"]
+    ports: ["8501:8501"]
+    environment:
+      - AGENTGUARD_URL=http://gateway:8000
+    depends_on: [gateway]
+volumes:
+  agentguard-data:
